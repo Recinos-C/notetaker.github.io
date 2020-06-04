@@ -17,8 +17,9 @@ var getNotes = function() {
 
 // A function for saving a note to the db
 var saveNote = function(note) {
+  // console.log(note)
   return $.ajax({
-    url: "/api/notes",
+    url: "/test/notes",
     data: note,
     method: "POST"
   });
@@ -131,19 +132,6 @@ var getAndRenderNotes = function() {
     renderNoteList(data);
   });
 };
-
-$("btn").on("click", function(){
-    console.log("webiste started")
-    $.ajax({
-      type: 'POST',
-      url:'/notes',
-      // data: {}
-      success: function(resultData){
-        console.log(resultData)
-      }
-    })
-})
-
 
 $saveNoteBtn.on("click", handleNoteSave);
 $noteList.on("click", ".list-group-item", handleNoteView);
